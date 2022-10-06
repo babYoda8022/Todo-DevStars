@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <title>ToDo</title>
+</head>
+<body onload="Todos()">
+    <div class="fundo">
+
+        <div class="modal" id="modal-close">
+            <div class="close">
+                <i class='bx bx-x' id="btn-close"></i>
+            </div>
+            <div class="modal-content">
+                    <h1>Task description</h1>
+                    <input id="task" type="text">
+                    <div>
+                        <button id="create-task"class="button">Create</button>
+                    </div>
+            </div>
+            
+        </div>
+        <div class="fundo-modal" id="modal-close"></div>
+        <div class="container-content">
+
+            <div class="title">
+                <h1>Todo</h1>
+            </div>
+
+            <div class="button" id="open-modal"> Create Task</div>
+            
+            <div class="todo-main">
+                <!--
+                <div class="box-todos">
+                    <input type="checkbox">
+                    <div class="todo-content">
+                        <h1>estudar tailwind</h1>
+                    </div>  
+                    <div>
+                        <i class='bx bx-edit-alt'></i>
+                        <i class='bx bx-comment-x'></i>
+                    </div>
+                </div>
+                -->
+            </div>
+
+        </div>
+    </div>
+    <script src="src/js/index.js"></script>
+</body>
+</html>

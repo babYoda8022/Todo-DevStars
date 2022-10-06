@@ -1,0 +1,19 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap');
+
+*, html, body{
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    font-family: "Poppins";
+    box-sizing: border-box;
+}
+
+html{
+    --background-1: rgb(34, 122, 96);
+    --backgroundHouver: rgb(55, 180, 143);
+    --background-2: rgb(202, 224, 217);
+    --todoBacround: rgb(255, 255, 255);
+    --modalBackground: rgb(255, 255, 255);
+    --text-1: rgb(255, 255, 255);
+}
