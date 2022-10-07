@@ -1,0 +1,35 @@
+
+@media (max-width: 361px){
+
+    .container-content{
+        padding: 0rem;
+        padding-top: 0rem;
+    }
+    
+    .button{
+        display: none
+    }
+
+    .todo-main{
+        display: none;
+    }
+
+}
+
+@media (max-width: 1024px){
+    .container-content{
+        padding: 0 14rem;
+        padding-top: 6rem;
+    }
+
+    .modal{
+        left: 30rem;
+    }
+    
+}
+
+@media(max-width: 1325px){
+    .button{
+        left: 22rem;
+    }
+}
