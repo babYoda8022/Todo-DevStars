@@ -1,35 +1,143 @@
+@import url(global.css);
 
-@media (max-width: 361px){
+/*fundo*/
+.fundo {
+    overflow-y: scroll;
+    height: 100vh;
+    background: linear-gradient(26.5deg, var(--background-1) 40%, var(--background-2) 0%, var(--background-2) 50%);
+}
 
-    .container-content{
-        padding: 0rem;
-        padding-top: 0rem;
-    }
-    
-    .button{
-        display: none
-    }
+/*modal*/
+.modal {
+    border-radius: 1.5rem;
+    background-color: var(--modalBackground);
+    position: fixed;
+    top: 10rem;
+    z-index: 10;
+}
 
-    .todo-main{
-        display: none;
-    }
+.modal .close {
+    padding-right: 1rem;
+    margin-top: 2rem;
+    text-align: end;
+}
+
+.modal .close i {
+    cursor: pointer;
+}
+
+.modal-content {
+    padding: 1rem 4.5rem 4rem 5rem;
+    text-align: center;
+}
+
+.modal-content h1 {
+    font-size: 3rem;
+}
+
+.fundo-modal {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.modal-content input {
+    margin-top: 2.5rem;
+    margin-bottom: 4rem;
+    border: .1rem solid rgb(171, 179, 190);
+    border-radius: .5rem;
+    font-size: 2rem;
+    padding: .5rem 1rem;
+}
+
+.modal-content button {
+    border: none;
+    position: static;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#modal-close {
+    display: none;
+}
+
+/*todo header*/
+
+.container-content {
+    padding-top: 6rem;
+}
+
+.container-content .title h1 {
+    font-weight: 600;
+    padding: .5rem 0;
+    font-size: 3.5rem;
+    color: var(--text-1);
+    text-align: center;
+}
+
+.container-content .title {
+    background-color: var(--background-1);
+    margin-bottom: 2rem;
+}
+
+.button {
+    background-color: var(--background-1);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-1);
+    text-align: center;
+    padding: 1rem 5rem;
+    border-radius: 5rem;
+    cursor: pointer;
+    top: 2.5rem;
 
 }
 
-@media (max-width: 1024px){
-    .container-content{
-        padding: 0 14rem;
-        padding-top: 6rem;
-    }
-
-    .modal{
-        left: 30rem;
-    }
-    
+.container-content .button {
+    position: relative;
+    box-shadow: 0rem .3rem .6rem rgb(192, 192, 192);
 }
 
-@media(max-width: 1325px){
-    .button{
-        left: 22rem;
-    }
+.button:hover {
+    transition: .3s;
+    background-color: var(--backgroundHouver);
+}
+
+/*todo main*/
+.container-content .todo-main {
+    padding: 0rem 3rem;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    background-color: var(--todoBacround);
+    border-radius: 1rem;
+    margin-bottom: 4rem;
+}
+
+/*Todo*/
+.box-todos {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    padding: .5rem 0;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+
+.todo-content h1 {
+    height: 4rem;
+    width: 25rem;
+    font-weight: 500;
+    font-size: 2rem;
+    overflow: auto;
+}
+
+i {
+    padding-left: 1rem;
+    font-size: 3.5rem;
+}
+
+input {
+    margin-bottom: .6rem;
 }
