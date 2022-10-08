@@ -141,3 +141,8 @@ i {
 input {
     margin-bottom: .6rem;
 }
+
+#checked h1{
+    color: rgb(203, 58, 58);
+    text-decoration: line-through;
+}

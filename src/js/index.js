@@ -65,6 +65,16 @@ function Todos(){
             let todoContent = document.createElement("div")
             todoContent.setAttribute("class", "todo-content")
 
+            checkBox.addEventListener("click", ()=>{
+                if(!checkBox.checked)
+                {
+                    todoContent.removeAttribute("id")
+                }else
+                {
+                    todoContent.setAttribute("id", "checked")        
+                }
+            })
+
             let todoIcons = document.createElement("div")
             let icon
 
