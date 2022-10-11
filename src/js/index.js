@@ -1,7 +1,10 @@
 //Modal
 const openModal = document.getElementById("open-modal")
 const closeModal = document.querySelector("#btn-close")
+
 const modal = document.querySelector(".modal")
+const modalEdit = document.querySelector(".modal-edit")
+
 const fundoModal = document.querySelector(".fundo-modal")
 
 openModal.addEventListener("click", ()=>{
@@ -33,7 +36,6 @@ createTask.addEventListener("click", ()=>{
         }
 
         const task = {
-            "id": taskList == "" ? 0 : taskList.length - 1 + 1,
             "taskValue": inputValue.value,
             "completed": false
         }
@@ -54,7 +56,7 @@ function Todos(){
     {
         taskList = JSON.parse(localStorage.getItem("Todos"))
         
-        taskList.forEach((value, index)=>{
+        taskList.forEach((value, index1)=>{
 
             let todo = document.createElement("div")  
             todo.setAttribute("class", "box-todos")
@@ -69,27 +71,74 @@ function Todos(){
                 if(!checkBox.checked)
                 {
                     todoContent.removeAttribute("id")
+                    Completed(index1, false)     
                 }else
                 {
-                    todoContent.setAttribute("id", "checked")        
+                    todoContent.setAttribute("id", "checked")   
+                    Completed(index1, true)     
                 }
             })
 
             let todoIcons = document.createElement("div")
             let icon
 
-            listIcons.forEach((value, index)=>{
+            listIcons.forEach((value, index2)=>{
                 icon = document.createElement("i")
                 icon.setAttribute("class", value)
+                if(index2 == 0){
+                    icon.addEventListener("click",() =>{
+                        window.alert("Desenvolvimento")
+                        //EditTask(index1)
+                    })
+                }else{
+                    icon.addEventListener("click", ()=>{
+                        DeletTask(index1)
+                    })
+                }
                 todoIcons.appendChild(icon)
             })
 
             todoContent.innerHTML = `<h1>${value["taskValue"]}</h1>`
-
             todo.appendChild(checkBox)
-            todo.appendChild(todoContent)
+
+            if(taskList[index1]["completed"] == false){
+                todo.appendChild(todoContent)
+            }else
+            {
+                todoContent.setAttribute("id", "checked")
+                todo.appendChild(todoContent)
+                checkBox.checked = true
+            }
+
             todo.appendChild(todoIcons)
             todoMain.appendChild(todo)
         });
     }
+}
+
+
+function Completed(position, bool)
+{
+    taskList = JSON.parse(localStorage.getItem("Todos"))
+    taskList[position]["completed"] = bool
+    localStorage.clear()
+    localStorage.setItem("Todos", JSON.stringify(taskList))
+}
+
+function EditTask(position)
+{
+    taskList = JSON.parse(localStorage.getItem("Todos"))
+    taskList[position]["taskValue"] = inputValue.value
+    inputValue.value = ""
+    localStorage.clear()
+    localStorage.setItem("Todos", JSON.stringify(taskList))
+}
+
+function DeletTask(position)
+{
+    taskList = JSON.parse(localStorage.getItem("Todos"))
+    taskList.splice(position, 1)
+    localStorage.clear()
+    localStorage.setItem("Todos", JSON.stringify(taskList))
+    document.location.reload(true);
 }
