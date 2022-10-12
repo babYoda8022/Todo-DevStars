@@ -70,10 +70,19 @@ function Todos(){
             let checkBox = document.createElement("input")
             checkBox.type = "checkbox"
 
+            let divCheckbox = document.createElement("div")
+            divCheckbox.setAttribute("class", "chekedBox")
+
             let todoContent = document.createElement("div")
             todoContent.setAttribute("class", "todo-content")
 
-            checkBox.addEventListener("click", ()=>{
+            divCheckbox.addEventListener("click", ()=>{
+                if(!checkBox.checked){
+                    checkBox.checked = true
+                }else{
+                    checkBox.checked = false
+                }
+
                 if(!checkBox.checked)
                 {
                     todoContent.removeAttribute("id")
@@ -107,6 +116,7 @@ function Todos(){
 
             todoContent.innerHTML = `<h1>${value["taskValue"]}</h1>`
             todo.appendChild(checkBox)
+            todo.appendChild(divCheckbox)
 
             if(taskList[index1]["completed"] == false){
                 todo.appendChild(todoContent)

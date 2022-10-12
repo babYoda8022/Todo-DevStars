@@ -126,6 +126,8 @@
 
 
 .todo-content h1 {
+    display: flex;
+    align-items: center;
     height: 4rem;
     width: 25rem;
     font-weight: 500;
@@ -139,8 +141,23 @@ i {
     cursor: pointer;
 }
 
-input {
+.box-todos input {
+    position: absolute;
     margin-bottom: .6rem;
+    display: none;
+}
+
+.chekedBox{
+    width: 2.5rem;
+    height: 2.5rem;
+    border: .2rem solid rgb(186, 186, 201);
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+input:checked + .chekedBox{
+    border: none;
+    background-color: rgb(26, 151, 254);
 }
 
 #checked h1{
