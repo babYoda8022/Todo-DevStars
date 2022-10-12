@@ -8,7 +8,7 @@
 }
 
 /*modal*/
-.modal {
+.modal, .modal-edit {
     border-radius: 1.5rem;
     background-color: var(--modalBackground);
     position: fixed;
@@ -16,13 +16,13 @@
     z-index: 10;
 }
 
-.modal .close {
+.modal .close, .modal-edit .close{
     padding-right: 1rem;
     margin-top: 2rem;
     text-align: end;
 }
 
-.modal .close i {
+.modal .close i, .modal-edit .close i{
     cursor: pointer;
 }
 
@@ -58,7 +58,7 @@
     margin-bottom: 1rem;
 }
 
-#modal-close {
+#modal-close, #modal-close-edit {
     display: none;
 }
 

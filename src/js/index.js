@@ -1,10 +1,7 @@
 //Modal
 const openModal = document.getElementById("open-modal")
 const closeModal = document.querySelector("#btn-close")
-
 const modal = document.querySelector(".modal")
-const modalEdit = document.querySelector(".modal-edit")
-
 const fundoModal = document.querySelector(".fundo-modal")
 
 openModal.addEventListener("click", ()=>{
@@ -17,6 +14,15 @@ closeModal.addEventListener("click", ()=>{
     fundoModal.setAttribute("id", "modal-close")
 })
 
+//Modal edit
+const openModalEdit = document.getElementById("open-modal-edit")
+const closeModalEdit = document.querySelector("#btn-close-edit")
+const modalEdit = document.querySelector(".modal-edit")
+
+closeModalEdit.addEventListener("click", ()=>{
+    modalEdit.setAttribute("id", "modal-close-edit")
+    fundoModal.setAttribute("id", "modal-close")
+})
 
 //Create task
 const createTask = document.querySelector("#create-task")
@@ -87,8 +93,9 @@ function Todos(){
                 icon.setAttribute("class", value)
                 if(index2 == 0){
                     icon.addEventListener("click",() =>{
-                        window.alert("Desenvolvimento")
-                        //EditTask(index1)
+                        modalEdit.removeAttribute("id")
+                        fundoModal.removeAttribute("id")
+                        EditTask(index1)
                     })
                 }else{
                     icon.addEventListener("click", ()=>{
@@ -125,13 +132,25 @@ function Completed(position, bool)
     localStorage.setItem("Todos", JSON.stringify(taskList))
 }
 
+const btnEdit = document.querySelector("#edit-task")
+const inputValueEdit = document.querySelector("#task-edit");
 function EditTask(position)
 {
-    taskList = JSON.parse(localStorage.getItem("Todos"))
-    taskList[position]["taskValue"] = inputValue.value
-    inputValue.value = ""
-    localStorage.clear()
-    localStorage.setItem("Todos", JSON.stringify(taskList))
+    btnEdit.addEventListener("click", ()=>{
+        if(!inputValueEdit.value)
+        {
+            window.alert("Cannot pass an empty value")
+        }else
+        {
+            taskList = JSON.parse(localStorage.getItem("Todos"))
+            taskList[position]["taskValue"] = inputValueEdit.value
+            inputValue.value = ""
+            localStorage.clear()
+            localStorage.setItem("Todos", JSON.stringify(taskList))
+            document.location.reload(true);
+        }
+    })
+    
 }
 
 function DeletTask(position)
